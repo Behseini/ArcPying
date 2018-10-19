@@ -1,0 +1,7 @@
+import arcpy
+import os
+dir = 
+GDBfiles =[]
+for gdb in os.listdir(dir):
+    if file.endswith(".gdb"):
+       GDBfiles.append()
