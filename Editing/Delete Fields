@@ -1,0 +1,6 @@
+import arcpy
+arcpy.env.workspace = r'C:\GEWA.gdb\Structure'
+dropfields=['MapBy','EnabledBy']
+featurelist=arcpy.ListFeatureClasses()
+for feature in featurelist:
+    arcpy.DeleteField_management(in_table=feature,drop_field=dropfields)
