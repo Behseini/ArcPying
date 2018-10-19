@@ -1,1 +1,26 @@
 
+#Return with .shp extention
+
+import os  
+  
+ws = "c:/temp"  
+shpFiles =[]
+for file in os.listdir(ws):      
+    if file.endswith(".shp"):  
+        shpFiles.append(file)
+print (shpFiles)    
+
+
+#================================================================================
+
+
+#Return only name with no .shp extention
+
+import os
+
+ws = "c:/temp"  
+shpFiles =[]
+for file in os.listdir(ws):      
+    if file.endswith(".shp"):  
+        shpFiles.append(os.path.splitext(file)[0])
+print (shpFiles)  
