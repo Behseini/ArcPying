@@ -1,1 +1,10 @@
 
+import arcpy
+import os
+
+arcpy.env.workspace = r"C:\arcgis\ArcTutor\AAA\GDBs\Delaware.gdb"
+dst = arcpy.ListDatasets()
+dsts =[]
+for ds in dst:
+      dsts.append(ds)
+print(dsts)
