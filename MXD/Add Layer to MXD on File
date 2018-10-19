@@ -1,1 +1,19 @@
 # Create a Template (simple ArcMap Document through ArcMap Session with required Spatial Refrence)
+
+import arcpy
+import os
+arcpy.env.workspace = r"C:\\arcgis\\ArcTutor\\AAA\\MXDs"
+FC = r"C:\arcgis\ArcTutor\AAA\GDBs\Delaware.gdb\Kent"
+arcpy.MakeFeatureLayer_management(FC, "Kent")
+
+
+MXD = arcpy.mapping.MapDocument(r"C:\arcgis\ArcTutor\AAA\MXDs\map.mxd")
+DF = arcpy.mapping.ListDataFrames(MXD)[0]
+
+layer = arcpy.mapping.Layer("Kent")
+arcpy.mapping.AddLayer(DF, layer, "AUTO_ARRANGE")
+
+MXD.saveACopy('newmxd.mxd')
+
+del MXD
+print(" Done")
