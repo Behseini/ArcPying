@@ -1,0 +1,11 @@
+import arcpy
+from arcpy import env
+
+def unique_values(table , field):
+    with arcpy.da.SearchCursor(table, [field], '"NAME_1" = \''+Ohio+'\'') as cursor:
+        return sorted({row[0] for row in cursor})
+uniques = unique_values(r'C:\arcgis\ArcTutor\AAA\src\USA.shp' , 'NAME_2')
+for unique in uniques:
+
+    print (unique)
+    
