@@ -1,7 +1,23 @@
+#Using Directory Method
+
 import arcpy
 import os
-dir = 
+dir = r"C:\arcgis\ArcTutor\AAA\GDBs"
 GDBfiles =[]
-for gdb in os.listdir(dir):
+for file in os.listdir(dir):
     if file.endswith(".gdb"):
-       GDBfiles.append()
+       GDBfiles.append(file)
+       print(GDBfiles)
+
+
+#=====================================================================
+#Using Arcpy Workspace Method
+
+import arcpy
+import os
+ws = "C:\arcgis\ArcTutor\AAA\GDBs"
+GDBfiles =[]
+for file in os.listdir(ws):
+    if file.endswith(".gdb"):
+       GDBfiles.append(file)
+       print(GDBfiles)
