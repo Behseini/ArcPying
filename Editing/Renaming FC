@@ -1,0 +1,12 @@
+import arcpy
+import os
+
+arcpy.env.workspace = r"C:\arcgis\ArcTutor\AAA\GDBs\Delaware.gdb\Kent"
+fcs = arcpy.ListFeatureClasses()
+for fc in fcs:
+    desc = arcpy.Describe(fc)
+    gType = desc.shapeType
+    if gType == "Point" and 'Point' in fc:
+            outname = fc.replace('Point','______')
+            arcpy.Rename_management(fc, outname)
+    print(fc)
