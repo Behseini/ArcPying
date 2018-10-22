@@ -17,3 +17,25 @@ MXD.saveACopy('newmxd.mxd')
 
 del MXD
 print(" Done")
+
+
+
+======================== Working V ========================================
+import arcpy
+import os
+arcpy.env.workspace = r"C:\\arcgis\\ArcTutor\\AAA\\MXDs"
+print('Step 1')
+fc = r"C:\\arcgis\\ArcTutor\\AAA\\GDBs\\Delaware.gdb\\Kent\\roads_freeKent"
+arcpy.MakeFeatureLayer_management(fc, "Roads")
+print('Step 2')
+
+MXD = arcpy.mapping.MapDocument(r"C:\\arcgis\\ArcTutor\\AAA\\MXDs\\map.mxd")
+df = arcpy.mapping.ListDataFrames(MXD)[0]
+print('Step 3')
+layer = arcpy.mapping.Layer("Roads")
+arcpy.mapping.AddLayer(df, layer, "AUTO_ARRANGE")
+
+MXD.saveACopy('newmCVCVxd.mxd')
+
+del MXD
+print(" Done")
